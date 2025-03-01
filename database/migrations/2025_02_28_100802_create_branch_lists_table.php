@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branch_lists', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('Branch_List', function (Blueprint $table) {
+            $table->increments('Branch_List_ID');
+            $table->integer('Branch_ID')->unsigned();
+            $table->integer('User_ID')->unsigned();
+            $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Branch_ID')->references('Branch_ID')->on('Branches');
+            $table->foreign('User_ID')->references('User_ID')->on('Users');
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('branch_lists');
+        Schema::dropIfExists('Branch_List');
     }
 };

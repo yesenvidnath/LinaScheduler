@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipment_images', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('Equipment_Images', function (Blueprint $table) {
+            $table->increments('EQI_ID');
+            $table->integer('Equip_ID')->unsigned();
+            $table->string('EQI_Image', 255);
+            $table->text('EQI_Discription');
+            $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Equip_ID')->references('Equip_ID')->on('Equipments');
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equipment_images');
+        Schema::dropIfExists('Equipment_Images');
     }
 };

@@ -15,6 +15,7 @@ class Batch_List extends Model
 
     protected $fillable = [
         'User_ID',
+        'Branch_ID',
         'Status',
         'Is_Deleted'
     ];
@@ -22,5 +23,10 @@ class Batch_List extends Model
     public function user()
     {
         return $this->belongsTo(Users::class, 'User_ID', 'User_ID');
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class, 'Branch_ID', 'Branch_ID');
     }
 }

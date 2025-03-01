@@ -16,9 +16,8 @@ class Branch extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'Branch_Location',
         'Branch_Name',
-        'Branch_Description',
+        'Branch_Discription',
         'Is_Deleted'
     ];
 

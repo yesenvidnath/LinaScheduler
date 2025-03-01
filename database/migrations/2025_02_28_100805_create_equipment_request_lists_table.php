@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipment_request_lists', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('EquipmentRequestList', function (Blueprint $table) {
+            $table->increments('ERL_ID');
+            $table->integer('Course_ID')->unsigned();
+            $table->integer('Equip_ID')->unsigned();
+            $table->enum('Class_Type', ['Practical', 'Lession']);
+            $table->integer('Expected_Student_Count');
+            $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Course_ID')->references('Course_ID')->on('Courses');
+            $table->foreign('Equip_ID')->references('Equip_ID')->on('Equipments');
         });
     }
 
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equipment_request_lists');
+        Schema::dropIfExists('EquipmentRequestList');
     }
 };

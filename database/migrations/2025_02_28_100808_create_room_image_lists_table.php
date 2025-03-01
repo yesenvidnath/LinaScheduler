@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('room_image_lists', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('Room_Image_Lists', function (Blueprint $table) {
+            $table->increments('RIL_ID');
+            $table->integer('Room_ID')->unsigned();
+            $table->string('RIL_Image', 255);
+            $table->text('RIL_Discription');
+            $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Room_ID')->references('Room_ID')->on('Rooms');
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('room_image_lists');
+        Schema::dropIfExists('Room_Image_Lists');
     }
 };

@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('laboratory_types', function (Blueprint $table) {
-            $table->id();
+            $table->id('Equip_Type_ID');
+            $table->string('Equip_Type', 150);
+            $table->text('Equip_Type_Discrption');
+            $table->boolean('Is_Deleted')->default(false);
             $table->timestamps();
         });
     }

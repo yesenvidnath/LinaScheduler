@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branches', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('Branches', function (Blueprint $table) {
+            $table->increments('Branch_ID');
+            $table->string('Branch_Name', 100);
+            $table->text('Branch_Discription');
+            $table->boolean('Is_Deleted')->default(false);
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('Branches');
     }
 };

@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_designations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('UserDesignations', function (Blueprint $table) {
+            $table->increments('UD_ID');
+            $table->string('Designation', 100);
+            $table->boolean('Is_Deleted')->default(false);
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_designations');
+        Schema::dropIfExists('UserDesignations');
     }
 };

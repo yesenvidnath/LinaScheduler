@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('laboratories', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('lab_type_id');
+            $table->string('lab_number', 200);
+            $table->text('lab_description');
+            $table->boolean('is_deleted')->default(false);
+
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('lab_type_id')->references('id')->on('laboratory_types');
             $table->timestamps();
         });
     }

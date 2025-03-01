@@ -11,9 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('booking_requests', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('BookingRequest', function (Blueprint $table) {
+            $table->increments('BookReqest_ID');
+            $table->integer('Course_ID')->unsigned();
+            $table->integer('Batch_ID')->unsigned();
+            $table->integer('User_ID')->unsigned();
+            $table->integer('ERL_ID')->unsigned()->nullable();
+            $table->enum('Class_Type', ['Practical', 'Lession']);
+            $table->integer('Expected_Student_Count');
+            $table->timestamp('Class_Start_Time');
+            $table->timestamp('Class_End_Time');
+            $table->enum('Status', ['Confirmed', 'Pending', 'Rejected']);
+            $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Course_ID')->references('Course_ID')->on('Courses');
+            $table->foreign('Batch_ID')->references('Batch_ID')->on('Batches');
+            $table->foreign('User_ID')->references('User_ID')->on('Users');
+            $table->foreign('ERL_ID')->references('ERL_ID')->on('EquipmentRequestList');
         });
     }
 
@@ -22,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('booking_requests');
+        Schema::dropIfExists('BookingRequest');
     }
 };
