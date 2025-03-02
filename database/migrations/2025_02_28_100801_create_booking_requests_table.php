@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('Expected_Student_Count');
             $table->timestamp('Class_Start_Time');
             $table->timestamp('Class_End_Time');
-            $table->enum('Status', ['Confirmed', 'Pending', 'Rejected']);
+            $table->enum('Status', ['1', '0', '1*']);
             $table->boolean('Is_Deleted')->default(false);
 
             $table->foreign('Course_ID')->references('Course_ID')->on('Courses');

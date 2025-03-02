@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('Course_ID');
             $table->string('Course_Name', 100);
             $table->text('Course_Discription');
+            $table->enum('Status', ['1', '0', '1*']);
             $table->boolean('Is_Deleted')->default(false);
         });
     }
