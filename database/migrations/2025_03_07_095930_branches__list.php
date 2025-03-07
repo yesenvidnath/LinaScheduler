@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Branch_List', function (Blueprint $table) {
-            $table->increments('Branch_List_ID');
-            $table->integer('Branch_ID')->unsigned();
-            $table->integer('User_ID')->unsigned();
+            $table->id('Branch_List_ID');
+            $table->unsignedBigInteger('Branch_ID'); // Ensure unsignedBigInteger to match Branches
+            $table->unsignedBigInteger('User_ID'); // Ensure unsignedBigInteger to match users
             $table->boolean('Is_Deleted')->default(false);
 
-            $table->foreign('Branch_ID')->references('Branch_ID')->on('Branches');
-            $table->foreign('User_ID')->references('User_ID')->on('Users');
+            // Foreign Key Constraints
+            $table->foreign('Branch_ID')->references('Branch_ID')->on('Branches')->onDelete('cascade');
+            $table->foreign('User_ID')->references('User_ID')->on('users')->onDelete('cascade');
         });
     }
 

@@ -25,9 +25,9 @@ return new class extends Migration
             $table->boolean('Is_WhiteBoard_Avilable')->default(false);
             $table->boolean('Is_Projector_Avilable')->default(false);
             $table->boolean('Is_Smart_board_Avilable')->default(false);
-            $table->foreign('Fl_ID')->references('Fl_ID')->on('flows');
             $table->boolean('Is_Deleted')->default(false);
             $table->timestamps();
+            $table->foreign('Fl_ID')->references('Fl_ID')->on('flows');
         });
     }
 

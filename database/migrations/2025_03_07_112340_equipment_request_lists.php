@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('EquipmentRequestList', function (Blueprint $table) {
-            $table->increments('ERL_ID');
-            $table->integer('Course_ID')->unsigned();
-            $table->integer('Equip_ID')->unsigned();
-            $table->enum('Class_Type', ['Practical', 'Lession']);
+            $table->id('ERL_ID'); // Change from increments() to id() for consistency
+            $table->unsignedBigInteger('Course_ID');
+            $table->unsignedBigInteger('Equip_ID');
+            $table->enum('Class_Type', ['Practical', 'Lesson']); // Fixed typo "Lession" -> "Lesson"
             $table->integer('Expected_Student_Count');
             $table->boolean('Is_Deleted')->default(false);
 
-            $table->foreign('Course_ID')->references('Course_ID')->on('Courses');
-            $table->foreign('Equip_ID')->references('Equip_ID')->on('Equipments');
+            // Foreign Keys
+            $table->foreign('Course_ID')->references('Course_ID')->on('Courses')->onDelete('cascade');
+            $table->foreign('Equip_ID')->references('Equip_ID')->on('Equipments')->onDelete('cascade');
         });
     }
 

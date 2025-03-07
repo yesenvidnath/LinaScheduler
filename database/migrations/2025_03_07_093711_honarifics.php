@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('UserDesignations', function (Blueprint $table) {
-            $table->increments('UD_ID');
-            $table->string('Designation', 100);
+        Schema::create('Honorifics', function (Blueprint $table) {
+            $table->id('Honorifics_ID');
+            $table->string('Honorific', 50);
             $table->boolean('Is_Deleted')->default(false);
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('UserDesignations');
+        Schema::dropIfExists('Honorifics');
     }
 };

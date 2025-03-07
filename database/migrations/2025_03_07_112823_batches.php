@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Honorifics', function (Blueprint $table) {
-            $table->increments('Honorifics_ID');
-            $table->string('Honorific', 50);
+        Schema::create('Batches', function (Blueprint $table) {
+            $table->id('Batch_ID');
+            $table->string('Batch_Name', 100);
+            $table->integer('Batch_Student_Count');
+            $table->text('Batch_Discription');
+            $table->enum('Status', ['1', '0', '1*']);
             $table->boolean('Is_Deleted')->default(false);
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Honorifics');
+        Schema::dropIfExists('Batches');
     }
 };

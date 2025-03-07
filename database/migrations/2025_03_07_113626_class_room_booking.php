@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Class_Room_Bookings', function (Blueprint $table) {
-            $table->increments('CRB_ID');
-            $table->integer('Room_ID')->unsigned();
-            $table->integer('BookReqest_ID')->unsigned();
+            $table->id('CRB_ID');
+            $table->unsignedBigInteger('Room_ID');
+            $table->unsignedBigInteger('BookRequest_ID'); // Fixed typo
             $table->text('CRB_Discription');
             $table->boolean('Is_Deleted')->default(false);
 
-            $table->foreign('Room_ID')->references('Room_ID')->on('Rooms');
-            $table->foreign('BookReqest_ID')->references('BookReqest_ID')->on('BookingRequest');
+            // Foreign Keys
+            $table->foreign('Room_ID')->references('Room_ID')->on('Rooms')->onDelete('cascade');
+            $table->foreign('BookRequest_ID')->references('BookRequest_ID')->on('BookingRequest')->onDelete('cascade');
         });
     }
 

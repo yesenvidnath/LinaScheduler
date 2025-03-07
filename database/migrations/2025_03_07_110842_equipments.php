@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Equipments', function (Blueprint $table) {
-            $table->increments('Equip_ID');
-            $table->integer('Equip_Type_ID')->unsigned();
+            $table->id('Equip_ID');
+            $table->unsignedBigInteger('Equip_Type_ID'); // Ensure unsignedBigInteger to match Equipment_Types
             $table->text('Equip_Discrption');
             $table->enum('Equip_Userbility_Status', ['1', '0', '1*']);
             $table->enum('Is_Booked', ['1', '0', '1*']);
             $table->boolean('Is_Deleted')->default(false);
 
-            $table->foreign('Equip_Type_ID')->references('Equip_Type_ID')->on('Equipment_Types');
+            // Foreign Key Constraint
+            $table->foreign('Equip_Type_ID')->references('Equip_Type_ID')->on('Equipment_Types')->onDelete('cascade'); // If an equipment type is deleted, related equipment is deleted
         });
     }
 

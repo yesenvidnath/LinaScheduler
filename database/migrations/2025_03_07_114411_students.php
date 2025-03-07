@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('Student_ID'); // Auto-increment primary key
+            $table->unsignedBigInteger('User_ID'); // Foreign key to Users
+            $table->boolean('Is_Deleted')->default(false);
+            $table->enum('Status', ['1', '0', '1*']);
+            // Foreign Key Constraints
+            $table->foreign('User_ID')->references('User_ID')->on('users')->onDelete('cascade');
+
         });
     }
 

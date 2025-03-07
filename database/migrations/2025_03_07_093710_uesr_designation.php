@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Batches', function (Blueprint $table) {
-            $table->increments('Batch_ID');
-            $table->string('Batch_Name', 100);
-            $table->integer('Batch_Student_Count');
-            $table->text('Batch_Discription');
-            $table->enum('Status', ['1', '0', '1*']);
+        Schema::create('UserDesignations', function (Blueprint $table) {
+            $table->id('UD_ID');
+            $table->string('Designation', 100);
             $table->boolean('Is_Deleted')->default(false);
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Batches');
+        Schema::dropIfExists('UserDesignations');
     }
 };

@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Room_Image_Lists', function (Blueprint $table) {
-            $table->increments('RIL_ID');
-            $table->integer('Room_ID')->unsigned();
-            $table->string('RIL_Image', 255);
-            $table->text('RIL_Discription');
+        Schema::create('libraries', function (Blueprint $table) {
+            $table->id('Lib_ID');
+            $table->unsignedBigInteger('Room_ID');
+            $table->string('Lib_Number', 50);
+            $table->text('Lib_Discription');
             $table->boolean('Is_Deleted')->default(false);
 
-            $table->foreign('Room_ID')->references('Room_ID')->on('Rooms');
+            // Foreign Key
+            $table->foreign('Room_ID')->references('Room_ID')->on('rooms')->onDelete('cascade');
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Room_Image_Lists');
+        Schema::dropIfExists('libraries');
     }
 };

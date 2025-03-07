@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Courses', function (Blueprint $table) {
-            $table->increments('Course_ID');
-            $table->string('Course_Name', 100);
-            $table->text('Course_Discription');
-            $table->enum('Status', ['1', '0', '1*']);
+        Schema::create('Room_Image_Lists', function (Blueprint $table) {
+            $table->id('RIL_ID');
+            $table->unsignedBigInteger('Room_ID');
+            $table->string('RIL_Image', 255);
+            $table->text('RIL_Discription');
             $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Room_ID')->references('Room_ID')->on('Rooms');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Courses');
+        Schema::dropIfExists('Room_Image_Lists');
     }
 };

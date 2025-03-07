@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Batch_List', function (Blueprint $table) {
-            $table->increments('Batch_List_ID');
-            $table->integer('User_ID')->unsigned();
-            $table->integer('Branch_ID')->unsigned();
+            $table->id('Batch_List_ID');
+            $table->unsignedBigInteger('User_ID');
+            $table->unsignedBigInteger('Branch_ID');
             $table->enum('Status', ['Active', 'Ended', 'Suspended']);
             $table->boolean('Is_Deleted')->default(false);
 

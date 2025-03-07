@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Equipment_Types', function (Blueprint $table) {
-            $table->increments('Equip_Type_ID');
-            $table->string('Equip_Type', 150);
-            $table->text('Equip_Type_Discrption');
+        Schema::create('Equipment_Images', function (Blueprint $table) {
+            $table->id('EQI_ID');
+            $table->unsignedBigInteger('Equip_ID')->unsigned();
+            $table->string('EQI_Image', 255);
+            $table->text('EQI_Discription');
             $table->boolean('Is_Deleted')->default(false);
+
+            $table->foreign('Equip_ID')->references('Equip_ID')->on('Equipments');
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Equipment_Types');
+        Schema::dropIfExists('Equipment_Images');
     }
 };

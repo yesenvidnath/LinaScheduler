@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('User_Discrption');
             $table->enum('Status', ['1', '0', '1*']);
             $table->boolean('Is_Deleted')->default(false);
-            $table->foreign('UD_ID')->references('UD_ID')->on('user_designation');
+            $table->foreign('UD_ID')->references('UD_ID')->on('UserDesignations');
             $table->foreign('Honorifics_ID')->references('Honorifics_ID')->on('honorifics');
             $table->timestamps();
         });
