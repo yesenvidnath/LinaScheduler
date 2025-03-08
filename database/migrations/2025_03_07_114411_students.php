@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id('Student_ID'); // Auto-increment primary key
             $table->unsignedBigInteger('User_ID'); // Foreign key to Users
+            $table->string('Student_Roll_No', 20);
             $table->boolean('Is_Deleted')->default(false);
             $table->enum('Status', ['1', '0', '1*']);
             // Foreign Key Constraints

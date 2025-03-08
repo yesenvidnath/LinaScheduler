@@ -22,6 +22,7 @@ class Users extends Model
         'Last_Name',
         'User_Discrption',
         'Status',
+        'password',
         'Is_Deleted'
     ];
 
