@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
-use App\Models\User;
-use App\Models\Users;
+use App\Models\Users; // Ensure this is correct
 
 class LoginController extends Controller
 {
@@ -27,7 +26,8 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user->login_attempts = 0;
             $user->save();
-            return response()->json(['message' => 'Login successful'], 200);
+            $token = $user->createToken('auth_token')->plainTextToken;
+            return response()->json(['message' => 'Login successful', 'token' => $token], 200);
         } else {
             if ($user) {
                 $user->increment('login_attempts');
@@ -47,4 +47,3 @@ class LoginController extends Controller
             : response()->json(['message' => 'Unable to send password reset link.'], 500);
     }
 }
- 

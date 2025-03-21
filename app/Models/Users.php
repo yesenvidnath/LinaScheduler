@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
-class Users extends Model
+class Users extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory;
 
     protected $table = 'Users';
 
@@ -24,7 +25,8 @@ class Users extends Model
         'User_Discrption',
         'Status',
         'password',
-        'Is_Deleted'
+        'Is_Deleted',
+        'login_attempts'
     ];
 
     protected $casts = [
