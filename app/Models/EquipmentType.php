@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class EquipmentType extends Model
+{
+    use HasFactory;
+
+    protected $table = 'Equipment_Types';
+    protected $primaryKey = 'Equip_Type_ID';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'Equip_Type',
+        'Equip_Type_Discrption',
+        'Is_Deleted'
+    ];
+
+    public function equipments()
+    {
+        return $this->hasMany(Equipment::class, 'Equip_Type_ID', 'Equip_Type_ID');
+    }
+}
