@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
-use App\Models\Users; // Ensure this is correct
+use Illuminate\Support\Facades\Hash;
+use App\Models\Users;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -38,12 +40,46 @@ class LoginController extends Controller
 
     public function recoverPassword(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+        $request->validate([
+            'email' => 'required|email',
+            'current_password' => 'required|string',
+            'secret_passcode' => 'required|string',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
 
-        $status = Password::sendResetLink($request->only('email'));
+        $user = Users::where('email', $request->email)->first();
 
-        return $status === Password::RESET_LINK_SENT
-            ? response()->json(['message' => 'Password reset link sent.'], 200)
-            : response()->json(['message' => 'Unable to send password reset link.'], 500);
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return response()->json(['message' => 'Current password is incorrect'], 401);
+        }
+
+        // The passcode is the current day of the week, the current year, and the current month, please make sure to adjust the format as needed and keep it consistent with the expected format.
+        $currentDate = Carbon::now();
+        $expectedPasscode = $currentDate->format('l') . $currentDate->year . $currentDate->format('F');
+
+        if ($request->secret_passcode !== $expectedPasscode) {
+            return response()->json(['message' => 'Invalid secret passcode'], 401);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json(['message' => 'Password updated successfully'], 200);
+    }
+
+    /**
+     * Helper method to retrieve the authenticated user's ID.
+     */
+    protected function getAuthenticatedUserId()
+    {
+        // Retrieve the authenticated user
+        $user = Auth::user();
+
+        // Check if the user is authenticated and return the user_ID
+        return $user ? $user->User_ID : null;
     }
 }
