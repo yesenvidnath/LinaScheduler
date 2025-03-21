@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('Honorifics_ID');
             $table->string('First_Name', 70);
             $table->string('Last_Name', 70);
+            $table->string('Email')->unique();
             $table->text('User_Discrption');
             $table->enum('Status', ['1', '0', '1*']);
             $table->string('password');

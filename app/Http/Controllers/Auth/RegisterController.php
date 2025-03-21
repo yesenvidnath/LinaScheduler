@@ -14,7 +14,7 @@ class RegisterController extends Controller
         $request->validate([
             'First_Name' => 'required|string|max:70',
             'Last_Name' => 'required|string|max:70',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:users,Email',
             'password' => 'required|string|min:8|confirmed',
             'UD_ID' => 'required|integer',
             'Honorifics_ID' => 'required|integer',
@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $user = Users::create([
             'First_Name' => $request->First_Name,
             'Last_Name' => $request->Last_Name,
-            'email' => $request->email,
+            'Email' => $request->email, // Ensure this field is included
             'password' => Hash::make($request->password),
             'UD_ID' => $request->UD_ID,
             'Honorifics_ID' => $request->Honorifics_ID,

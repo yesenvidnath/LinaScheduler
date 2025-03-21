@@ -20,6 +20,7 @@ class Users extends Model
         'Honorifics_ID',
         'First_Name',
         'Last_Name',
+        'Email',
         'User_Discrption',
         'Status',
         'password',
