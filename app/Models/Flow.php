@@ -9,16 +9,14 @@ class Flow extends Model
 {
     use HasFactory;
 
-    protected $table = 'flows';
-
+    protected $table = 'Flows';
     protected $primaryKey = 'Fl_ID';
-
     public $timestamps = false;
 
     protected $fillable = [
         'Branch_ID',
-        'FL_Name',
-        'FL_Discription',
+        'Fl_Name',
+        'Fl_Discription',
         'Is_Deleted'
     ];
 
