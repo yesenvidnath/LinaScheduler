@@ -30,12 +30,26 @@ Route::prefix('admin/branches')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\BranchController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\BranchController::class, 'store']);
     Route::get('/show/{param}', [App\Http\Controllers\Admin\BranchController::class, 'show'])
-        ->where('param', '.*'); // Allow any character in parameter
+        ->where('param', '.*');
     Route::put('/update/{branch}', [App\Http\Controllers\Admin\BranchController::class, 'update']);
     Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\BranchController::class, 'destroy'])
         ->where('param', '.*');
     Route::put('/recover/{param}', [App\Http\Controllers\Admin\BranchController::class, 'recover'])
         ->where('param', '.*');
     Route::get('/deleted/{param}', [App\Http\Controllers\Admin\BranchController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/flows')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\FlowController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\FlowController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\FlowController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{flow}', [App\Http\Controllers\Admin\FlowController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\FlowController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\FlowController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\FlowController::class, 'showDeleted'])
         ->where('param', '.*');
 });

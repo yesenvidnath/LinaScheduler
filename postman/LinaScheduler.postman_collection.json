@@ -18,10 +18,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/auth/register",
+              "raw": "http://localhost:8000/api/auth/register",
               "protocol": "http",
               "host": ["localhost"],
-              "path": ["LinaScheduler", "public", "api", "auth", "register"]
+              "port": "8000",
+              "path": ["api", "auth", "register"]
             },
             "body": {
               "mode": "raw",
@@ -50,10 +51,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/auth/login",
+              "raw": "http://localhost:8000/api/auth/login",
               "protocol": "http",
               "host": ["localhost"],
-              "path": ["LinaScheduler", "public", "api", "auth", "login"]
+              "port": "8000",
+              "path": ["api", "auth", "login"]
             },
             "body": {
               "mode": "raw",
@@ -80,10 +82,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/admin/branches",
+              "raw": "http://localhost:8000/api/admin/branches",
               "protocol": "http",
               "host": ["localhost"],
-              "path": ["LinaScheduler", "public", "api", "admin", "branches"]
+              "port": "8000",
+              "path": ["api", "admin", "branches"]
             }
           }
         },
@@ -102,10 +105,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/admin/branches/create",
+              "raw": "http://localhost:8000/api/admin/branches/create",
               "protocol": "http",
               "host": ["localhost"],
-              "path": ["LinaScheduler", "public", "api", "admin", "branches", "create"]
+              "port": "8000",
+              "path": ["api", "admin", "branches", "create"]
             },
             "body": {
               "mode": "raw",
@@ -128,12 +132,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/admin/branches/show/1",
+              "raw": "http://localhost:8000/api/admin/branches/show/1",
               "protocol": "http",
               "host": ["localhost"],
+              "port": "8000",
               "path": [
-                "LinaScheduler",
-                "public",
                 "api",
                 "admin",
                 "branches",
@@ -158,12 +161,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/admin/branches/update/1",
+              "raw": "http://localhost:8000/api/admin/branches/update/1",
               "protocol": "http",
               "host": ["localhost"],
+              "port": "8000",
               "path": [
-                "LinaScheduler",
-                "public",
                 "api",
                 "admin",
                 "branches",
@@ -192,12 +194,11 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/admin/branches/destroy/1",
+              "raw": "http://localhost:8000/api/admin/branches/destroy/1",
               "protocol": "http",
               "host": ["localhost"],
+              "port": "8000",
               "path": [
-                "LinaScheduler",
-                "public",
                 "api",
                 "admin",
                 "branches",
@@ -218,18 +219,165 @@
               }
             ],
             "url": {
-              "raw": "http://localhost/LinaScheduler/public/api/admin/branches/recover/1",
+              "raw": "http://localhost:8000/api/admin/branches/recover/1",
               "protocol": "http",
               "host": ["localhost"],
+              "port": "8000",
               "path": [
-                "LinaScheduler",
-                "public",
                 "api",
                 "admin",
                 "branches",
                 "recover",
                 "1"
               ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Flows",
+      "item": [
+        {
+          "name": "3.1 Create Flow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/flows/create",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": [
+                "api",
+                "admin",
+                "flows",
+                "create"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Branch_ID": 1,
+                "Fl_Name": "Main Flow",
+                "Fl_Discription": "Main Flow Description"
+              }
+            }
+          }
+        },
+        {
+          "name": "3.2 Show Flow",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/flows/show/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "flows", "show", "1"]
+            }
+          }
+        },
+        {
+          "name": "3.3 Update Flow",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/flows/update/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "flows", "update", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Branch_ID": 1,
+                "Fl_Name": "Updated Flow Name",
+                "Fl_Discription": "Updated Flow Description"
+              }
+            }
+          }
+        },
+        {
+          "name": "3.4 Delete Flow",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/flows/destroy/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "flows", "destroy", "1"]
+            }
+          }
+        },
+        {
+          "name": "3.5 Recover Flow",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/flows/recover/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "flows", "recover", "1"]
+            }
+          }
+        },
+        {
+          "name": "3.6 Show Deleted Flows",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/flows/deleted/*",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "flows", "deleted", "*"]
             }
           }
         }
