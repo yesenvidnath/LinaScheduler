@@ -382,6 +382,177 @@
           }
         }
       ]
+    },
+    {
+      "name": "4. Rooms",
+      "item": [
+        {
+          "name": "4.1 List All Rooms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms"]
+            }
+          }
+        },
+        {
+          "name": "4.2 Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms/create",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "create"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Fl_ID": 1,
+                "Room_Number": "101",
+                "Room_Discrption": "Main Classroom",
+                "Room_Availability": true,
+                "Room_Type": "Classroom",
+                "Max_Student_Count": 30,
+                "Max_Chair_Count": 35,
+                "Max_Power_Outlets": 10,
+                "Max_Table_Count": 15,
+                "Is_WhiteBoard_Avilable": true,
+                "Is_Projector_Avilable": true,
+                "Is_Smart_board_Avilable": false
+              }
+            }
+          }
+        },
+        {
+          "name": "4.3 Show Room",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms/show/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "show", "1"]
+            }
+          }
+        },
+        {
+          "name": "4.4 Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms/update/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "update", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Room_Number": "102",
+                "Room_Discrption": "Updated Room Description",
+                "Max_Student_Count": 40
+              }
+            }
+          }
+        },
+        {
+          "name": "4.5 Delete Room",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms/destroy/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "destroy", "1"]
+            }
+          }
+        },
+        {
+          "name": "4.6 Recover Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms/recover/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "recover", "1"]
+            }
+          }
+        },
+        {
+          "name": "4.7 Show Deleted Rooms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/admin/rooms/deleted/*",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "deleted", "*"]
+            }
+          }
+        }
+      ]
     }
   ]
 }
