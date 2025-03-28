@@ -18,6 +18,7 @@ class Branch extends Model
     protected $fillable = [
         'Branch_Name',
         'Branch_Discription',
+        'Status',
         'Is_Deleted'
     ];
 
