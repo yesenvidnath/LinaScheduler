@@ -25,3 +25,17 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('register', [RegisterController::class, 'register']);
     Route::post('recover-password', [LoginController::class, 'recoverPassword'])->middleware('auth:sanctum');
 });
+
+Route::prefix('admin/branches')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\BranchController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\BranchController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\BranchController::class, 'show'])
+        ->where('param', '.*'); // Allow any character in parameter
+    Route::put('/update/{branch}', [App\Http\Controllers\Admin\BranchController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\BranchController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\BranchController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\BranchController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
