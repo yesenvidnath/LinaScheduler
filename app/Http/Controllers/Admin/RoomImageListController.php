@@ -111,34 +111,18 @@ class RoomImageListController extends Controller
     protected function processAndStoreImage($image, $filename)
     {
         try {
-            // Create a new ImageManager instance with GD driver
-            $manager = new ImageManager(
-                new \Intervention\Image\Drivers\Gd\Driver()
-            );
-
-            // Read the image file
-            $img = $manager->read($image->getRealPath());
-
-            // Resize if larger than 800px width
-            if ($img->width() > 800) {
-                $img = $img->scaleDown(800);
-            }
-
-            // Convert and compress to JPEG
-            $processedImage = $img->toJpeg(80);
-
-            // Store the processed image
-            if (Storage::put($this->uploadPath . '/' . $filename, $processedImage)) {
+            // Simple file storage without processing
+            if ($image->storeAs($this->uploadPath, $filename)) {
                 return ['success' => true];
             }
 
             throw new \Exception('Failed to store image');
 
         } catch (\Exception $e) {
-            Log::error('Image processing error: ' . $e->getMessage());
+            Log::error('Image storage error: ' . $e->getMessage());
             return [
                 'success' => false,
-                'message' => 'Image processing failed: ' . $e->getMessage()
+                'message' => 'Image storage failed: ' . $e->getMessage()
             ];
         }
     }

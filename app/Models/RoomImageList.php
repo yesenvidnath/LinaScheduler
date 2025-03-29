@@ -9,7 +9,7 @@ class RoomImageList extends Model
 {
     use HasFactory;
 
-    protected $table = 'RoomImageList';
+    protected $table = 'room_image_lists';  // Changed to match actual table name
     protected $primaryKey = 'RIL_ID';
     public $timestamps = false;
 
