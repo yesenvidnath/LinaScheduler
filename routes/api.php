@@ -67,3 +67,17 @@ Route::prefix('admin/rooms')->group(function () {
     Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomController::class, 'showDeleted'])
         ->where('param', '.*');
 });
+
+Route::prefix('admin/roomimages')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomImageListController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomImageListController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{roomimage}', [App\Http\Controllers\Admin\RoomImageListController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'showDeleted'])
+        ->where('param', '.*');
+});

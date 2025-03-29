@@ -18,9 +18,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/auth/register",
+              "raw": "http://127.0.0.1:8000/api/auth/register",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "auth", "register"]
             },
@@ -51,9 +51,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/auth/login",
+              "raw": "http://127.0.0.1:8000/api/auth/login",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "auth", "login"]
             },
@@ -82,9 +82,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches",
+              "raw": "http://127.0.0.1:8000/api/admin/branches",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "branches"]
             }
@@ -105,9 +105,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/create",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/create",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "branches", "create"]
             },
@@ -132,9 +132,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/show/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/show/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -161,9 +161,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/update/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/update/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -194,9 +194,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/destroy/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/destroy/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -219,9 +219,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/recover/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/recover/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -253,9 +253,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/create",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/create",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -285,9 +285,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/show/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/show/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "show", "1"]
             }
@@ -308,9 +308,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/update/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/update/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "update", "1"]
             },
@@ -335,9 +335,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/destroy/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/destroy/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "destroy", "1"]
             }
@@ -354,9 +354,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/recover/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/recover/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "recover", "1"]
             }
@@ -373,9 +373,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/deleted/*",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/deleted/*",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "deleted", "*"]
             }
@@ -397,9 +397,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms"]
             }
@@ -420,9 +420,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms/create",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/create",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms", "create"]
             },
@@ -456,9 +456,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms/show/1",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/show/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms", "show", "1"]
             }
@@ -479,9 +479,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms/update/1",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/update/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms", "update", "1"]
             },
@@ -506,9 +506,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms/destroy/1",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/destroy/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms", "destroy", "1"]
             }
@@ -525,9 +525,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms/recover/1",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/recover/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms", "recover", "1"]
             }
@@ -544,11 +544,185 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/rooms/deleted/*",
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/deleted/*",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "rooms", "deleted", "*"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Room Images",
+      "item": [
+        {
+          "name": "5.1 List All Room Images",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages"]
+            }
+          }
+        },
+        {
+          "name": "5.2 Upload Room Images",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Room_ID",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "RIL_Discription",
+                  "value": "Main room view photos",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "/path/to/image1.jpg"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "/path/to/image2.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/create",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "create"]
+            }
+          }
+        },
+        {
+          "name": "5.3 Show Room Image",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/show/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "show", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.4 Update Room Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/update/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "update", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Room_ID": 1,
+                "RIL_Discription": "Updated room description"
+              }
+            }
+          }
+        },
+        {
+          "name": "5.5 Delete Room Image",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/destroy/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "destroy", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.6 Recover Room Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/recover/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "recover", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.7 Show Deleted Room Images",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/deleted/*",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "deleted", "*"]
             }
           }
         }

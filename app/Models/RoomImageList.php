@@ -9,22 +9,24 @@ class RoomImageList extends Model
 {
     use HasFactory;
 
-    protected $table = 'Room_Image_List';
-
+    protected $table = 'RoomImageList';
     protected $primaryKey = 'RIL_ID';
+    public $timestamps = false;
 
     protected $fillable = [
         'Room_ID',
-        'Room_Image',
-        'RIL_Discrption',
+        'RIL_Image',
+        'RIL_Discription',
         'Is_Deleted'
     ];
 
-    public $timestamps = false;
+    protected $casts = [
+        'Is_Deleted' => 'boolean',
+    ];
 
     public function room()
     {
-        return $this->belongsTo(Room::class, 'Room_ID');
+        return $this->belongsTo(Room::class, 'Room_ID', 'Room_ID');
     }
 }
 
