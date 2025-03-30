@@ -68,6 +68,90 @@ Route::prefix('admin/rooms')->group(function () {
         ->where('param', '.*');
 });
 
+Route::prefix('admin/rooms/roomtypes')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{class}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/rooms/roomtypes/classes')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{class}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/rooms/roomtypes/studyroom')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{study}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/rooms/roomtypes/libraryroom')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{library}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/rooms/roomtypes/laboratory_types')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{labtype}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/rooms/roomtypes/laboratoriesroom')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{laboratory}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
 Route::prefix('admin/roomimages')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\RoomImageListController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\RoomImageListController::class, 'store']);

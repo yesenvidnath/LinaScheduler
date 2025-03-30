@@ -9,16 +9,14 @@ class Study extends Model
 {
     use HasFactory;
 
-    protected $table = 'Study';
-
+    protected $table = 'studies';
     protected $primaryKey = 'Study_ID';
-
     public $timestamps = false;
 
     protected $fillable = [
         'Room_ID',
         'Study_Number',
-        'Study_Discrption',
+        'Study_Discription',
         'Is_Deleted'
     ];
 
