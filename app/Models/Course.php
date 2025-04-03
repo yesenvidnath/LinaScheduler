@@ -9,13 +9,18 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $table = 'Courses';
+    protected $table = 'Course';
     protected $primaryKey = 'Course_ID';
     public $timestamps = false;
 
     protected $fillable = [
         'Course_Name',
         'Course_Discription',
+        'Status',
         'Is_Deleted'
+    ];
+
+    protected $casts = [
+        'Is_Deleted' => 'boolean',
     ];
 }
