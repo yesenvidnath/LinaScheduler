@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\EquipmentTypes;
+namespace App\Http\Controllers\Admin\Equipments;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Verify\AdminVerificationController;
