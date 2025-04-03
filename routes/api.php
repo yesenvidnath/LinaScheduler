@@ -193,3 +193,17 @@ Route::prefix('admin/Equipments/equipmentimages')->group(function () {
     Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'showDeleted'])
         ->where('param', '.*');
 });
+
+Route::prefix('admin/Equipments')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{equipment}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'showDeleted'])
+        ->where('param', '.*');
+});

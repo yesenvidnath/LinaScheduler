@@ -1731,6 +1731,169 @@
               }
             }
           ]
+        },
+        {
+          "name": "7.3 Equipment",
+          "item": [
+            {
+              "name": "7.3.1 List All Equipment",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments"]
+                }
+              }
+            },
+            {
+              "name": "7.3.2 Create Equipment",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments/create",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments", "create"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Equip_Type_ID": 1,
+                    "Equip_Discrption": "New equipment description",
+                    "Equip_Userbility_Status": "1",
+                    "Is_Booked": "0"
+                  }
+                }
+              }
+            },
+            {
+              "name": "7.3.3 Show Equipment",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments/show/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments", "show", "1"]
+                }
+              }
+            },
+            {
+              "name": "7.3.4 Update Equipment",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments/update/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments", "update", "1"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Equip_Discrption": "Updated equipment description",
+                    "Equip_Userbility_Status": "1",
+                    "Is_Booked": "0"
+                  }
+                }
+              }
+            },
+            {
+              "name": "7.3.5 Delete Equipment",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments/destroy/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments", "destroy", "1"]
+                }
+              }
+            },
+            {
+              "name": "7.3.6 Recover Equipment",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments/recover/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments", "recover", "1"]
+                }
+              }
+            },
+            {
+              "name": "7.3.7 Show Deleted Equipment",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/Equipments/deleted/*",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "Equipments", "deleted", "*"]
+                }
+              }
+            }
+          ]
         }
       ]
     }
