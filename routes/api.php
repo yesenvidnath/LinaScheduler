@@ -167,15 +167,29 @@ Route::prefix('admin/roomimages')->group(function () {
 });
 
 Route::prefix('admin/Equipments/equipmenttypes')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'show'])
+    Route::get('/', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'show'])
         ->where('param', '.*');
-    Route::put('/update/{equipmenttype}', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'destroy'])
+    Route::put('/update/{equipmenttype}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'destroy'])
         ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'recover'])
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'recover'])
         ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\EquipmentTypes\EquipmentTypeController::class, 'showDeleted'])
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/Equipments/equipmentimages')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{equipmentimage}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'showDeleted'])
         ->where('param', '.*');
 });

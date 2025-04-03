@@ -9,7 +9,7 @@ class EquipmentImage extends Model
 {
     use HasFactory;
 
-    protected $table = 'Equipment_Images';
+    protected $table = 'EquipmentImage';
     protected $primaryKey = 'EQI_ID';
     public $timestamps = false;
 
@@ -18,6 +18,10 @@ class EquipmentImage extends Model
         'EQI_Image',
         'EQI_Discription',
         'Is_Deleted'
+    ];
+
+    protected $casts = [
+        'Is_Deleted' => 'boolean',
     ];
 
     public function equipment()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\EquipmentTypes;
+namespace App\Http\Controllers\Admin\Equipments;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Verify\AdminVerificationController;
@@ -200,43 +200,5 @@ class EquipmentTypeController extends Controller
         return response()->json(['message' => 'Invalid parameter format'], 400);
     }
 
-    public function showDeleted($param)
-    {
-        if (!$this->adminVerifier->isAdmin()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
 
-        if ($param === '*') {
-            $equipmentTypes = EquipmentType::where('Is_Deleted', true)->get();
-            if ($equipmentTypes->isEmpty()) {
-                return response()->json(['message' => 'No deleted equipment types found'], 404);
-            }
-            return $equipmentTypes;
-        }
-
-        if (strpos($param, '-') !== false) {
-            list($start, $end) = explode('-', $param);
-            if (is_numeric($start) && is_numeric($end)) {
-                $equipmentTypes = EquipmentType::where('Is_Deleted', true)
-                    ->whereBetween('Equip_Type_ID', [$start, $end])
-                    ->get();
-                if ($equipmentTypes->isEmpty()) {
-                    return response()->json(['message' => "No deleted equipment types found in range $start-$end"], 404);
-                }
-                return $equipmentTypes;
-            }
-        }
-
-        if (is_numeric($param)) {
-            $equipmentType = EquipmentType::where('Equip_Type_ID', $param)
-                    ->where('Is_Deleted', true)
-                    ->first();
-            if (!$equipmentType) {
-                return response()->json(['message' => 'Deleted equipment type not found'], 404);
-            }
-            return $equipmentType;
-        }
-
-        return response()->json(['message' => 'Invalid parameter format'], 400);
-    }
 }
