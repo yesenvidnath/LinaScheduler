@@ -18,9 +18,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/auth/register",
+              "raw": "http://127.0.0.1:8000/api/auth/register",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "auth", "register"]
             },
@@ -51,9 +51,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/auth/login",
+              "raw": "http://127.0.0.1:8000/api/auth/login",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "auth", "login"]
             },
@@ -82,9 +82,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches",
+              "raw": "http://127.0.0.1:8000/api/admin/branches",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "branches"]
             }
@@ -105,9 +105,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/create",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/create",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "branches", "create"]
             },
@@ -132,9 +132,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/show/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/show/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -161,9 +161,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/update/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/update/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -194,9 +194,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/destroy/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/destroy/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -219,9 +219,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/branches/recover/1",
+              "raw": "http://127.0.0.1:8000/api/admin/branches/recover/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -253,9 +253,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/create",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/create",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": [
                 "api",
@@ -285,9 +285,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/show/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/show/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "show", "1"]
             }
@@ -308,9 +308,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/update/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/update/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "update", "1"]
             },
@@ -335,9 +335,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/destroy/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/destroy/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "destroy", "1"]
             }
@@ -354,9 +354,9 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/recover/1",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/recover/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "recover", "1"]
             }
@@ -373,13 +373,1064 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/admin/flows/deleted/*",
+              "raw": "http://127.0.0.1:8000/api/admin/flows/deleted/*",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": ["127.0.0.1"],
               "port": "8000",
               "path": ["api", "admin", "flows", "deleted", "*"]
             }
           }
+        }
+      ]
+    },
+    {
+      "name": "4. Rooms",
+      "item": [
+        {
+          "name": "4.1 List All Rooms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms"]
+            }
+          }
+        },
+        {
+          "name": "4.2 Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/create",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "create"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Fl_ID": 1,
+                "Room_Number": "101",
+                "Room_Discrption": "Main Classroom",
+                "Room_Availability": true,
+                "Room_Type": "Classroom",
+                "Max_Student_Count": 30,
+                "Max_Chair_Count": 35,
+                "Max_Power_Outlets": 10,
+                "Max_Table_Count": 15,
+                "Is_WhiteBoard_Avilable": true,
+                "Is_Projector_Avilable": true,
+                "Is_Smart_board_Avilable": false
+              }
+            }
+          }
+        },
+        {
+          "name": "4.3 Show Room",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/show/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "show", "1"]
+            }
+          }
+        },
+        {
+          "name": "4.4 Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/update/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "update", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Room_Number": "102",
+                "Room_Discrption": "Updated Room Description",
+                "Max_Student_Count": 40
+              }
+            }
+          }
+        },
+        {
+          "name": "4.5 Delete Room",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/destroy/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "destroy", "1"]
+            }
+          }
+        },
+        {
+          "name": "4.6 Recover Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/recover/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "recover", "1"]
+            }
+          }
+        },
+        {
+          "name": "4.7 Show Deleted Rooms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/rooms/deleted/*",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "rooms", "deleted", "*"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Room Images",
+      "item": [
+        {
+          "name": "5.1 List All Room Images",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages"]
+            }
+          }
+        },
+        {
+          "name": "5.2 Upload Room Images",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Room_ID",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "RIL_Discription",
+                  "value": "Main room view photos",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "/path/to/image1.jpg"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "/path/to/image2.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/create",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "create"]
+            }
+          }
+        },
+        {
+          "name": "5.3 Show Room Image",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/show/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "show", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.4 Update Room Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/update/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "update", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "Room_ID": 1,
+                "RIL_Discription": "Updated room description"
+              }
+            }
+          }
+        },
+        {
+          "name": "5.5 Delete Room Image",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/destroy/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "destroy", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.6 Recover Room Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/recover/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "recover", "1"]
+            }
+          }
+        },
+        {
+          "name": "5.7 Show Deleted Room Images",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/admin/roomimages/deleted/*",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "admin", "roomimages", "deleted", "*"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Room Types",
+      "item": [
+        {
+          "name": "6.1 Classes",
+          "item": [
+            {
+              "name": "6.1.1 List All Classes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/classes",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "classes"]
+                }
+              }
+            },
+            {
+              "name": "6.1.2 Create Class",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/classes/create",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "classes", "create"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Room_ID": 1,
+                    "Cls_Number": "CS101",
+                    "Cls_Discription": "Computer Science Class"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.2 Study Rooms",
+          "item": [
+            {
+              "name": "6.2.1 List All Study Rooms",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom"]
+                }
+              }
+            },
+            {
+              "name": "6.2.2 Create Study Room",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom/create",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom", "create"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Room_ID": 1,
+                    "Study_Number": "ST101",
+                    "Study_Discription": "Study Room Description"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.2.3 Show Study Room",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom/show/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom", "show", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.2.4 Update Study Room",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom/update/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom", "update", "1"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Study_Number": "ST102",
+                    "Study_Discription": "Updated Study Room Description"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.2.5 Delete Study Room",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom/destroy/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom", "destroy", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.2.6 Recover Study Room",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom/recover/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom", "recover", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.2.7 Show Deleted Study Rooms",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/studyroom/deleted/*",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "studyroom", "deleted", "*"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.3 Library Rooms",
+          "item": [
+            {
+              "name": "6.3.1 List All Libraries",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom"]
+                }
+              }
+            },
+            {
+              "name": "6.3.2 Create Library",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom/create",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom", "create"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Room_ID": 1,
+                    "Lib_Number": "LIB101",
+                    "Lib_Discription": "Main Library Room"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.3.3 Show Library",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom/show/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom", "show", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.3.4 Update Library",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom/update/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom", "update", "1"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Lib_Number": "LIB102",
+                    "Lib_Discription": "Updated Library Description"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.3.5 Delete Library",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom/destroy/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom", "destroy", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.3.6 Recover Library",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom/recover/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom", "recover", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.3.7 Show Deleted Libraries",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/libraryroom/deleted/*",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "libraryroom", "deleted", "*"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.4 Laboratory Types",
+          "item": [
+            {
+              "name": "6.4.1 List All Laboratory Types",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types"]
+                }
+              }
+            },
+            {
+              "name": "6.4.2 Create Laboratory Type",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types/create",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types", "create"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Lab_Type": "Chemistry Lab",
+                    "Lab_Type_Discription": "Laboratory for chemistry experiments"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.4.3 Show Laboratory Type",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types/show/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types", "show", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.4.4 Update Laboratory Type",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types/update/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types", "update", "1"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Lab_Type": "Physics Lab",
+                    "Lab_Type_Discription": "Updated laboratory type description"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.4.5 Delete Laboratory Type",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types/destroy/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types", "destroy", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.4.6 Recover Laboratory Type",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types/recover/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types", "recover", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.4.7 Show Deleted Laboratory Types",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratory_types/deleted/*",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratory_types", "deleted", "*"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.5 Laboratories",
+          "item": [
+            {
+              "name": "6.5.1 List All Laboratories",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom"]
+                }
+              }
+            },
+            {
+              "name": "6.5.2 Create Laboratory",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom/create",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom", "create"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Room_ID": 1,
+                    "Lab_Type_ID": 1,
+                    "Lab_Number": "LAB101",
+                    "Lab_Equipment_Count": 25,
+                    "Lab_Discription": "Chemistry Laboratory"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.5.3 Show Laboratory",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom/show/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom", "show", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.5.4 Update Laboratory",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom/update/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom", "update", "1"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": {
+                    "Lab_Number": "LAB102",
+                    "Lab_Equipment_Count": 30,
+                    "Lab_Discription": "Updated Laboratory Description"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6.5.5 Delete Laboratory",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom/destroy/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom", "destroy", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.5.6 Recover Laboratory",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom/recover/1",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom", "recover", "1"]
+                }
+              }
+            },
+            {
+              "name": "6.5.7 Show Deleted Laboratories",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/rooms/roomtypes/laboratoriesroom/deleted/*",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "admin", "rooms", "roomtypes", "laboratoriesroom", "deleted", "*"]
+                }
+              }
+            }
+          ]
         }
       ]
     }

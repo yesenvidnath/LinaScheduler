@@ -9,7 +9,7 @@ class EquipmentType extends Model
 {
     use HasFactory;
 
-    protected $table = 'Equipment_Types';
+    protected $table = 'EquipmentType';
     protected $primaryKey = 'Equip_Type_ID';
     public $timestamps = false;
 
@@ -19,8 +19,7 @@ class EquipmentType extends Model
         'Is_Deleted'
     ];
 
-    public function equipments()
-    {
-        return $this->hasMany(Equipment::class, 'Equip_Type_ID', 'Equip_Type_ID');
-    }
+    protected $casts = [
+        'Is_Deleted' => 'boolean',
+    ];
 }

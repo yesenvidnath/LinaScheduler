@@ -10,7 +10,6 @@ class Room extends Model
     use HasFactory;
 
     protected $table = 'Rooms';
-
     protected $primaryKey = 'Room_ID';
 
     protected $fillable = [
@@ -27,6 +26,13 @@ class Room extends Model
         'Is_Projector_Avilable',
         'Is_Smart_board_Avilable',
         'Is_Deleted'
+    ];
+
+    protected $casts = [
+        'Is_WhiteBoard_Avilable' => 'boolean',
+        'Is_Projector_Avilable' => 'boolean',
+        'Is_Smart_board_Avilable' => 'boolean',
+        'Is_Deleted' => 'boolean',
     ];
 
     public $timestamps = false;

@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RoomImageList extends Model
+class RoomClass extends Model
 {
     use HasFactory;
 
-    protected $table = 'room_image_lists';  // Changed to match actual table name
-    protected $primaryKey = 'RIL_ID';
+    protected $table = 'Classes';
+    protected $primaryKey = 'Cls_ID';
     public $timestamps = false;
 
     protected $fillable = [
         'Room_ID',
-        'RIL_Image',
-        'RIL_Discription',
+        'Cls_Number',
+        'Cls_Discription',
         'Is_Deleted'
     ];
 
@@ -29,4 +29,3 @@ class RoomImageList extends Model
         return $this->belongsTo(Room::class, 'Room_ID', 'Room_ID');
     }
 }
-
