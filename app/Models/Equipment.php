@@ -9,7 +9,7 @@ class Equipment extends Model
 {
     use HasFactory;
 
-    protected $table = 'Equipments';
+    protected $table = 'Equipment';
     protected $primaryKey = 'Equip_ID';
     public $timestamps = false;
 
@@ -19,6 +19,10 @@ class Equipment extends Model
         'Equip_Userbility_Status',
         'Is_Booked',
         'Is_Deleted'
+    ];
+
+    protected $casts = [
+        'Is_Deleted' => 'boolean',
     ];
 
     public function equipmentType()
