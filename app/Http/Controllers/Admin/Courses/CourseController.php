@@ -59,5 +59,97 @@ class CourseController extends Controller
         return Course::create($validated);
     }
 
-    // ... remaining CRUD methods following same pattern as other controllers
+    public function show($param)
+    {
+        if (!$this->adminVerifier->isAdmin()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $course = Course::where('Course_ID', $param)
+            ->where('Is_Deleted', false)
+            ->first();
+
+        if (!$course) {
+            return response()->json(['message' => 'Course not found'], 404);
+        }
+
+        return $course;
+    }
+
+    public function update(Request $request, $course)
+    {
+        if (!$this->adminVerifier->isAdmin()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $course = Course::where('Course_ID', $course)
+            ->where('Is_Deleted', false)
+            ->first();
+
+        if (!$course) {
+            return response()->json(['message' => 'Course not found'], 404);
+        }
+
+        $validated = $request->validate([
+            'Course_Name' => 'required|string|max:100',
+            'Course_Discription' => 'required|string',
+            'Status' => 'required|in:1,0,1*'
+        ]);
+
+        $course->update($validated);
+        return $course;
+    }
+
+    public function destroy($param)
+    {
+        if (!$this->adminVerifier->isAdmin()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $course = Course::where('Course_ID', $param)
+            ->where('Is_Deleted', false)
+            ->first();
+
+        if (!$course) {
+            return response()->json(['message' => 'Course not found'], 404);
+        }
+
+        $course->update(['Is_Deleted' => true]);
+        return response()->json(['message' => 'Course deleted successfully']);
+    }
+
+    public function recover($param)
+    {
+        if (!$this->adminVerifier->isAdmin()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $course = Course::where('Course_ID', $param)
+            ->where('Is_Deleted', true)
+            ->first();
+
+        if (!$course) {
+            return response()->json(['message' => 'Deleted course not found'], 404);
+        }
+
+        $course->update(['Is_Deleted' => false]);
+        return response()->json(['message' => 'Course recovered successfully']);
+    }
+
+    public function showDeleted($param)
+    {
+        if (!$this->adminVerifier->isAdmin()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $course = Course::where('Course_ID', $param)
+            ->where('Is_Deleted', true)
+            ->first();
+
+        if (!$course) {
+            return response()->json(['message' => 'Deleted course not found'], 404);
+        }
+
+        return $course;
+    }
 }

@@ -1896,6 +1896,169 @@
           ]
         }
       ]
+    },
+
+    {
+        "name": "8. Course Management",
+        "item": [
+          {
+            "name": "8.1 List All Courses",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses"]
+              }
+            }
+          },
+          {
+            "name": "8.2 Create Course",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses/create",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses", "create"]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": {
+                  "Course_Name": "Sample Course",
+                  "Course_Discription": "Sample course description",
+                  "Status": "1"
+                }
+              }
+            }
+          },
+          {
+            "name": "8.3 Show Course",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses/show/1",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses", "show", "1"]
+              }
+            }
+          },
+          {
+            "name": "8.4 Update Course",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses/update/1",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses", "update", "1"]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": {
+                  "Course_Name": "Updated Course Name",
+                  "Course_Discription": "Updated course description",
+                  "Status": "1"
+                }
+              }
+            }
+          },
+          {
+            "name": "8.5 Delete Course",
+            "request": {
+              "method": "DELETE",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses/destroy/1",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses", "destroy", "1"]
+              }
+            }
+          },
+          {
+            "name": "8.6 Recover Course",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses/recover/1",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses", "recover", "1"]
+              }
+            }
+          },
+          {
+            "name": "8.7 Show Deleted Course",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://127.0.0.1:8000/api/admin/courses/deleted/1",
+                "protocol": "http",
+                "host": ["127.0.0.1"],
+                "port": "8000",
+                "path": ["api", "admin", "courses", "deleted", "1"]
+              }
+            }
+          }
+        ]
     }
   ]
 }
