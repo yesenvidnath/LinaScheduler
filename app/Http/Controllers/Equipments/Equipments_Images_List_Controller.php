@@ -194,3 +194,6 @@ class EquipmentImageController extends Controller
         return response()->json(['message' => 'Invalid parameter format'], 400);
     }
 }
+
+
+/* CAOUTIN : This controller must be changed and needed to be added after inspecting the code carefuly please read and go though the system blueprints before proceeding with the endfpoints*/
