@@ -1,25 +1,54 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# LinaScheduler - Educational Resource Management System
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
 </p>
 
-## About Laravel
+## About LinaScheduler
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+LinaScheduler is a comprehensive educational resource management system built with Laravel, designed to streamline the management of educational facilities, equipment, and course scheduling. This system provides a robust platform for educational institutions to efficiently manage their resources and scheduling needs.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Key Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Room Management**
+  - Multiple room types (Library, Class, Laboratory, Study Area)
+  - Detailed room specifications and equipment tracking
+  - Smart board and projector availability tracking
+  - Room capacity management
+
+- **Equipment Management**
+  - Equipment categorization and type management
+  - Equipment booking system
+  - Usage tracking and availability status
+  - Equipment image management
+
+- **Course Management**
+  - Course creation and assignment
+  - Student enrollment tracking
+  - Course scheduling
+  - Batch management
+
+- **Booking System**
+  - Class room booking
+  - Equipment reservation
+  - Conflict prevention
+  - Resource availability checking
+
+- **User Management**
+  - Role-based access control
+  - User designation system
+  - Student and staff management
+  - Administrative controls
+
+### Technical Features
+
+- RESTful API Architecture
+- Secure Authentication (Sanctum)
+- Soft Delete Implementation
+- Comprehensive Data Validation
+- Transaction Management
+- Relationship Management
+- Image Handling
 
 ## Learning Laravel
 
@@ -64,3 +93,107 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## System Requirements
+
+- PHP >= 8.1
+- MySQL >= 5.7
+- Composer
+- Node.js & NPM
+- Laravel CLI
+
+## Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/LinaScheduler.git
+cd LinaScheduler
+```
+
+2. Install PHP dependencies
+```bash
+composer install
+```
+
+3. Copy environment file and configure database
+```bash
+cp .env.example .env
+```
+
+4. Generate application key
+```bash
+php artisan key:generate
+```
+
+5. Run database migrations and seeders
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+6. Start the development server
+```bash
+php artisan serve
+```
+
+## API Documentation
+
+### Base URL
+`http://localhost:8000/api`
+
+### Authentication
+All API routes are protected by Laravel Sanctum. Include the authentication token in the request header:
+```
+Authorization: Bearer {your-token}
+```
+
+### Available Endpoints
+
+#### Equipment Management
+- `GET /admin/equipmentrequestlist` - List all equipment requests
+- `POST /admin/equipmentrequestlist/create` - Create new equipment request
+- `GET /admin/equipmentrequestlist/show/{param}` - Show specific equipment request(s)
+- `PUT /admin/equipmentrequestlist/update/{id}` - Update equipment request
+- `DELETE /admin/equipmentrequestlist/destroy/{param}` - Delete equipment request(s)
+- `PUT /admin/equipmentrequestlist/recover/{param}` - Recover deleted request(s)
+- `GET /admin/equipmentrequestlist/deleted/{param}` - Show deleted requests
+
+#### Room Management
+- Room creation and management
+- Room type assignment
+- Facility management
+- Image management
+
+#### Course Management
+- Course creation and updates
+- Student enrollment
+- Course scheduling
+- Batch management
+
+## Database Structure
+
+The system uses a well-structured database with the following key tables:
+- `rooms` - Manages all room information
+- `equipment` - Tracks available equipment
+- `courses` - Stores course information
+- `bookings` - Handles room and equipment bookings
+- `users` - Manages user information
+- `students` - Stores student records
+
+## Contributing
+
+Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## Security
+
+If you discover any security-related issues, please email your-email@example.com instead of using the issue tracker.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+
+## Support
+
+For support, please contact:
+- Email: support@linascheduler.com
+- Website: www.linascheduler.com
