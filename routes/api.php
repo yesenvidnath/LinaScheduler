@@ -1,5 +1,16 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| API Routes Documentation
+|--------------------------------------------------------------------------
+|
+| This file contains all API routes for the LinaScheduler application.
+| Routes are organized by functionality and follow RESTful conventions.
+| Most routes require authentication and admin privileges.
+|
+*/
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
@@ -7,12 +18,12 @@ use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Authentication Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| These routes handle user authentication including login, registration,
+| and password recovery. The password recovery route requires authentication
+| to prevent unauthorized access.
 |
 */
 
@@ -21,10 +32,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('login', [LoginController::class, 'login']);
-    Route::post('register', [RegisterController::class, 'register']);
-    Route::post('recover-password', [LoginController::class, 'recoverPassword'])->middleware('auth:sanctum');
+    Route::post('login', [LoginController::class, 'login']);           // Handle user login
+    Route::post('register', [RegisterController::class, 'register']);  // Handle new user registration
+    Route::post('recover-password', [LoginController::class, 'recoverPassword'])->middleware('auth:sanctum'); // Handle password recovery
 });
+
+/*
+|--------------------------------------------------------------------------
+| Branch Management Routes
+|--------------------------------------------------------------------------
+|
+| Routes for managing branches in the system. Supports CRUD operations
+| plus soft delete management. All routes use {param} wildcards to support
+| various ID formats.
+|
+*/
 
 Route::prefix('admin/branches')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\BranchController::class, 'index']);
@@ -40,6 +62,17 @@ Route::prefix('admin/branches')->group(function () {
         ->where('param', '.*');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Flow Management Routes
+|--------------------------------------------------------------------------
+|
+| Routes for managing workflow flows. Includes standard CRUD operations
+| and soft delete functionality. Flows represent process sequences in
+| the scheduling system.
+|
+*/
+
 Route::prefix('admin/flows')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\FlowController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\FlowController::class, 'store']);
@@ -53,6 +86,17 @@ Route::prefix('admin/flows')->group(function () {
     Route::get('/deleted/{param}', [App\Http\Controllers\Admin\FlowController::class, 'showDeleted'])
         ->where('param', '.*');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Room Management Routes
+|--------------------------------------------------------------------------
+|
+| Core routes for managing rooms. These routes handle basic room operations
+| before specialization into specific room types (class, study, library, etc.).
+| Includes soft delete management.
+|
+*/
 
 Route::prefix('admin/rooms')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\RoomController::class, 'index']);
@@ -68,6 +112,28 @@ Route::prefix('admin/rooms')->group(function () {
         ->where('param', '.*');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Room Type Management Routes
+|--------------------------------------------------------------------------
+|
+| These routes manage specialized room types. Each route supports:
+| - GET /index: List all rooms of specific type
+| - POST /store: Create new room of specific type
+| - GET /show/{id}: View specific room details
+| - PUT /update/{id}: Update room details
+| - DELETE /destroy/{id}: Soft delete room
+| - POST /restore/{id}: Restore soft-deleted room
+|
+| Parameters:
+| - id: Room identifier
+| - name: Room name/identifier
+| - capacity: Room capacity
+| - type_id: Room type identifier
+| - equipment_ids[]: Array of equipment IDs assigned to room
+|
+*/
+
 Route::prefix('admin/rooms/roomtypes')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'store']);
@@ -82,117 +148,29 @@ Route::prefix('admin/rooms/roomtypes')->group(function () {
         ->where('param', '.*');
 });
 
-Route::prefix('admin/rooms/roomtypes/classes')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{class}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\RoomClassController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/rooms/roomtypes/studyroom')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{study}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\StudyController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/rooms/roomtypes/libraryroom')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{library}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\LibraryController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/rooms/roomtypes/laboratory_types')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{labtype}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryTypeController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/rooms/roomtypes/laboratoriesroom')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{laboratory}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomTypes\LaboratoryController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/roomimages')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\RoomImageListController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\RoomImageListController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{roomimage}', [App\Http\Controllers\Admin\RoomImageListController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\RoomImageListController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/Equipments/equipmenttypes')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{equipmenttype}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentTypeController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/Equipments/equipmentimages')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{equipmentimage}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentImageController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
+/*
+|--------------------------------------------------------------------------
+| Equipment Management Routes
+|--------------------------------------------------------------------------
+|
+| Equipment management endpoints include:
+| - GET /index: List all equipment
+| - POST /store: Add new equipment
+| - GET /show/{id}: View equipment details
+| - PUT /update/{id}: Update equipment
+| - DELETE /destroy/{id}: Soft delete equipment
+| - POST /restore/{id}: Restore deleted equipment
+| - POST /upload-image/{id}: Upload equipment image
+|
+| Parameters:
+| - id: Equipment identifier
+| - name: Equipment name
+| - description: Equipment description
+| - type_id: Equipment type identifier
+| - status: Equipment status (active/inactive)
+| - image: Equipment image file (for upload)
+|
+*/
 
 Route::prefix('admin/Equipments')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'index']);
@@ -205,19 +183,5 @@ Route::prefix('admin/Equipments')->group(function () {
     Route::put('/recover/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'recover'])
         ->where('param', '.*');
     Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Equipments\EquipmentController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
-
-Route::prefix('admin/courses')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\Courses\CourseController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\Courses\CourseController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{course}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'showDeleted'])
         ->where('param', '.*');
 });
