@@ -208,16 +208,3 @@ Route::prefix('admin/Equipments')->group(function () {
         ->where('param', '.*');
 });
 
-Route::prefix('admin/courses')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\Courses\CourseController::class, 'index']);
-    Route::post('/create', [App\Http\Controllers\Admin\Courses\CourseController::class, 'store']);
-    Route::get('/show/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'show'])
-        ->where('param', '.*');
-    Route::put('/update/{course}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'update']);
-    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'destroy'])
-        ->where('param', '.*');
-    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'recover'])
-        ->where('param', '.*');
-    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Courses\CourseController::class, 'showDeleted'])
-        ->where('param', '.*');
-});
