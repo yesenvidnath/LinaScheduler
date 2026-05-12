@@ -12,7 +12,7 @@ class HonorificsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('honorifics')->insert([
+        DB::table('Honorifics')->insert([
             [
                 'Honorific' => 'Mr.',
                 'Is_Deleted' => false,

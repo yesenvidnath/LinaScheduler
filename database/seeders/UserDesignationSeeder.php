@@ -12,7 +12,7 @@ class UserDesignationSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('user_designation')->insert([
+        DB::table('UserDesignations')->insert([
             [
                 'Designation' => 'Professor',
                 'Is_Deleted' => false,

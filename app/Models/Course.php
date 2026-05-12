@@ -16,6 +16,7 @@ class Course extends Model
     protected $fillable = [
         'Course_Name',
         'Course_Discription',
+        'Status',
         'Is_Deleted'
     ];
 }
