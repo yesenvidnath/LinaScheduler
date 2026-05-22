@@ -51,7 +51,7 @@ class RoomClassController extends Controller
         }
 
         $validated = $request->validate([
-            'Room_ID' => 'required|exists:Rooms,Room_ID',
+            'Room_ID' => 'required|exists:rooms,Room_ID',
             'Cls_Number' => 'required|string|max:50',
             'Cls_Discription' => 'required|string'
         ]);
@@ -126,7 +126,7 @@ class RoomClassController extends Controller
         }
 
         $validated = $request->validate([
-            'Room_ID' => 'sometimes|required|exists:Rooms,Room_ID',
+            'Room_ID' => 'sometimes|required|exists:rooms,Room_ID',
             'Cls_Number' => 'sometimes|required|string|max:50',
             'Cls_Discription' => 'sometimes|required|string'
         ]);

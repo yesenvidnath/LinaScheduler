@@ -12,15 +12,19 @@ class UserDesignationSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('UserDesignations')->insert([
-            [
-                'Designation' => 'Professor',
-                'Is_Deleted' => false,
-            ],
-            [
-                'Designation' => 'Assistant Professor',
-                'Is_Deleted' => false,
-            ],
-        ]);
+        DB::table('UserDesignations')->updateOrInsert(
+            ['UD_ID' => 1],
+            ['Designation' => 'Admin', 'Is_Deleted' => false]
+        );
+
+        DB::table('UserDesignations')->updateOrInsert(
+            ['UD_ID' => 2],
+            ['Designation' => 'Professor', 'Is_Deleted' => false]
+        );
+
+        DB::table('UserDesignations')->updateOrInsert(
+            ['UD_ID' => 3],
+            ['Designation' => 'Assistant Professor', 'Is_Deleted' => false]
+        );
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Verify\AdminVerificationController;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -54,6 +55,7 @@ class UsersController extends Controller
             'password' => 'required|string'
         ]);
 
+        $validated['password'] = Hash::make($validated['password']);
         $validated['Is_Deleted'] = false;
         return Users::create($validated);
     }
@@ -122,6 +124,10 @@ class UsersController extends Controller
             'Status' => 'sometimes|required|in:1,0,1*',
             'password' => 'sometimes|required|string'
         ]);
+
+        if (isset($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        }
 
         $user->update($validated);
         return $user;

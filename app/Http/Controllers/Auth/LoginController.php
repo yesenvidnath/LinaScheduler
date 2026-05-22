@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Users;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -28,8 +29,18 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user->login_attempts = 0;
             $user->save();
+            $user->load('userDesignation', 'honorifics');
+
+            $designation = optional($user->userDesignation)->Designation;
+            $isAdmin = $designation ? Str::contains(Str::lower($designation), 'admin') : false;
             $token = $user->createToken('auth_token')->plainTextToken;
-            return response()->json(['message' => 'Login successful', 'token' => $token], 200);
+            return response()->json([
+                'message' => 'Login successful',
+                'token' => $token,
+                'user' => $user,
+                'role' => $designation,
+                'is_admin' => $isAdmin,
+            ], 200);
         } else {
             if ($user) {
                 $user->increment('login_attempts');

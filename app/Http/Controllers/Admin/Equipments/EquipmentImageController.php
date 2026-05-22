@@ -53,7 +53,7 @@ class EquipmentImageController extends Controller
         }
 
         $request->validate([
-            'Equip_ID' => 'required|exists:Equipment,Equip_ID',
+            'Equip_ID' => 'required|exists:Equipments,Equip_ID',
             'images' => 'required|array',
             'images.*' => 'required|image|mimes:jpeg,png,jpg|max:5120', // 5MB max
             'EQI_Discription' => 'required|string'
@@ -188,7 +188,7 @@ class EquipmentImageController extends Controller
         }
 
         $validated = $request->validate([
-            'Equip_ID' => 'sometimes|required|exists:Equipment,Equip_ID',
+            'Equip_ID' => 'sometimes|required|exists:Equipments,Equip_ID',
             'EQI_Discription' => 'sometimes|required|string'
         ]);
 

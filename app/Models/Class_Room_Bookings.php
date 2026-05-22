@@ -15,7 +15,7 @@ class Class_Room_Bookings extends Model
 
     protected $fillable = [
         'Room_ID',
-        'BookReqest_ID',
+        'BookRequest_ID',
         'CRB_Discription',
         'Is_Deleted'
     ];
@@ -27,6 +27,6 @@ class Class_Room_Bookings extends Model
 
     public function bookRequest()
     {
-        return $this->belongsTo(BookingRequest::class, 'BookReqest_ID', 'BookReqest_ID');
+        return $this->belongsTo(BookingRequest::class, 'BookRequest_ID', 'BookRequest_ID');
     }
 }

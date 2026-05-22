@@ -10,7 +10,7 @@ class BookingRequest extends Model
     use HasFactory;
 
     protected $table = 'BookingRequest';
-    protected $primaryKey = 'BookReqest_ID';
+    protected $primaryKey = 'BookRequest_ID';
     public $timestamps = false;
 
     protected $fillable = [
@@ -44,5 +44,10 @@ class BookingRequest extends Model
     public function equipmentRequestList()
     {
         return $this->belongsTo(EquipmentRequestList::class, 'ERL_ID', 'ERL_ID');
+    }
+
+    public function roomBookings()
+    {
+        return $this->hasMany(Class_Room_Bookings::class, 'BookRequest_ID', 'BookRequest_ID');
     }
 }

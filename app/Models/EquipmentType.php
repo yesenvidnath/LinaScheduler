@@ -9,7 +9,7 @@ class EquipmentType extends Model
 {
     use HasFactory;
 
-    protected $table = 'EquipmentType';
+    protected $table = 'Equipment_Types';
     protected $primaryKey = 'Equip_Type_ID';
     public $timestamps = false;
 

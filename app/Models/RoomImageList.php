@@ -9,7 +9,7 @@ class RoomImageList extends Model
 {
     use HasFactory;
 
-    protected $table = 'room_image_lists';  // Changed to match actual table name
+    protected $table = 'Room_Image_Lists';
     protected $primaryKey = 'RIL_ID';
     public $timestamps = false;
 
@@ -29,4 +29,3 @@ class RoomImageList extends Model
         return $this->belongsTo(Room::class, 'Room_ID', 'Room_ID');
     }
 }
-

@@ -9,7 +9,7 @@ class Flow extends Model
 {
     use HasFactory;
 
-    protected $table = 'Flows';
+    protected $table = 'flows';
     protected $primaryKey = 'Fl_ID';
     public $timestamps = false;
 

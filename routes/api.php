@@ -31,6 +31,7 @@ Route::group(['prefix' => 'auth'], function () {
 // Admin  API controllers Open
 //
 //
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 Route::prefix('admin/branches')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\BranchController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\BranchController::class, 'store']);
@@ -213,7 +214,8 @@ Route::prefix('admin/Equipments')->group(function () {
         ->where('param', '.*');
 });
 
-// -------------------------------------------Not tested yet -----------------------------------------------------------
+// -------------------------------------------Not tested yet -----------------------------------------------------
+
 Route::prefix('admin/courses')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\cources\CourseController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\cources\CourseController::class, 'store']);
@@ -227,7 +229,6 @@ Route::prefix('admin/courses')->group(function () {
     Route::get('/deleted/{param}', [App\Http\Controllers\Admin\cources\CourseController::class, 'showDeleted'])
         ->where('param', '.*');
 });
-
 
 Route::prefix('admin/users')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\Users\UsersController::class, 'index']);
@@ -257,11 +258,60 @@ Route::prefix('admin/users/honorifics')->group(function () {
         ->where('param', '.*');
 });
 
+Route::prefix('admin/batches')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{batch}', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Batches\BatchesController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/batches/batchlist')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{batchList}', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Batches\BatchListController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/scheduling/booking-requests')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{bookingRequest}', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Scheduling\BookingRequestController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/scheduling/class-room-bookings')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Scheduling\ClassRoomBookingController::class, 'index']);
+    Route::get('/available-rooms', [App\Http\Controllers\Admin\Scheduling\ClassRoomBookingController::class, 'availableRooms']);
+    Route::post('/create', [App\Http\Controllers\Admin\Scheduling\ClassRoomBookingController::class, 'store']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Scheduling\ClassRoomBookingController::class, 'destroy'])
+        ->where('param', '.*');
+});
+});
+
 
 //
 //
 // Admin  API controllers Close
 //
 //
-
-

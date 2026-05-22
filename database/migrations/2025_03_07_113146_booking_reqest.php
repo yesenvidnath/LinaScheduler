@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('User_ID');
             $table->unsignedBigInteger('ERL_ID')->nullable(); // Keep it unsignedBigInteger
 
-            $table->enum('Class_Type', ['Practical', 'Lesson']); // Fixed typo
+            $table->enum('Class_Type', ['Practical', 'Theory', 'Lesson']);
             $table->integer('Expected_Student_Count');
             $table->timestamp('Class_Start_Time')->nullable();
             $table->timestamp('Class_End_Time')->nullable();
@@ -26,9 +26,9 @@ return new class extends Migration
             $table->boolean('Is_Deleted')->default(false);
 
             // Foreign Keys
-            $table->foreign('Course_ID')->references('Course_ID')->on('Courses')->onDelete('cascade');
+            $table->foreign('Course_ID')->references('Course_ID')->on('courses')->onDelete('cascade');
             $table->foreign('Batch_ID')->references('Batch_ID')->on('Batches')->onDelete('cascade');
-            $table->foreign('User_ID')->references('User_ID')->on('Users')->onDelete('cascade');
+            $table->foreign('User_ID')->references('User_ID')->on('users')->onDelete('cascade');
             $table->foreign('ERL_ID')->references('ERL_ID')->on('EquipmentRequestList')->onDelete('set null');
         });
     }

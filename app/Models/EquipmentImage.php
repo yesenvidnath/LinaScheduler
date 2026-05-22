@@ -9,7 +9,7 @@ class EquipmentImage extends Model
 {
     use HasFactory;
 
-    protected $table = 'EquipmentImage';
+    protected $table = 'Equipment_Images';
     protected $primaryKey = 'EQI_ID';
     public $timestamps = false;
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('RIL_Discription');
             $table->boolean('Is_Deleted')->default(false);
 
-            $table->foreign('Room_ID')->references('Room_ID')->on('Rooms');
+            $table->foreign('Room_ID')->references('Room_ID')->on('rooms');
         });
     }
 
