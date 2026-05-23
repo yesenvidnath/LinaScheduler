@@ -53,4 +53,9 @@ class Users extends Authenticatable
     {
         return $this->hasMany(UserWorkDay::class, 'User_ID', 'User_ID');
     }
+
+    public function lectureAllocations()
+    {
+        return $this->hasMany(LectureAllocation::class, 'Lecturer_User_ID', 'User_ID');
+    }
 }

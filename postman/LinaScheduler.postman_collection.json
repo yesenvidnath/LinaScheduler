@@ -5726,6 +5726,253 @@
           }
         }
       ]
+    },
+    {
+      "name": "24. Lecture Allocations",
+      "item": [
+        {
+          "name": "24.1 List Lecture Allocations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations"
+              ]
+            }
+          }
+        },
+        {
+          "name": "24.2 Create Lecture Allocations",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations/create",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations",
+                "create"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Lecturer_User_ID\": 1,\n  \"Batch_ID\": 1,\n  \"Course_ID\": 1,\n  \"Cls_ID\": 1,\n  \"Allocation_Date\": \"2026-05-25\",\n  \"Session_Start_Time\": \"09:00\",\n  \"Session_End_Time\": \"11:00\",\n  \"Session_Type\": \"Theory\",\n  \"Is_Cancelled\": false,\n  \"Is_Additional_Working_Situation\": false,\n  \"Lecturer_Comment\": \"Prepared first lecture material.\",\n  \"Coordinator_Comment\": \"Coordinator schedule note.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "24.3 Show Lecture Allocations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations/show/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations",
+                "show",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "24.4 Update Lecture Allocations",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations/update/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations",
+                "update",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Lecturer_User_ID\": 1,\n  \"Batch_ID\": 1,\n  \"Course_ID\": 1,\n  \"Cls_ID\": 1,\n  \"Allocation_Date\": \"2026-05-25\",\n  \"Session_Start_Time\": \"10:00\",\n  \"Session_End_Time\": \"12:00\",\n  \"Session_Type\": \"Practical\",\n  \"Is_Cancelled\": false,\n  \"Is_Additional_Working_Situation\": true,\n  \"Lecturer_Comment\": \"Updated lecturer note.\",\n  \"Coordinator_Comment\": \"Updated coordinator scheduling note.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "24.5 Delete Lecture Allocations",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations/destroy/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations",
+                "destroy",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "24.6 Recover Lecture Allocations",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations/recover/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations",
+                "recover",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "24.7 Show Deleted Lecture Allocations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/lecture-allocations/deleted/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "lecture-allocations",
+                "deleted",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
     }
   ]
 }

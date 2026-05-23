@@ -308,6 +308,20 @@ Route::prefix('admin/scheduling/class-room-bookings')->group(function () {
 });
 
 
+Route::prefix('admin/lecture-allocations')->group(function () {
+    Route::get('/', [App\Http\Controllers\Shared\LectureAllocationController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Shared\LectureAllocationController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Shared\LectureAllocationController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{lectureAllocation}', [App\Http\Controllers\Shared\LectureAllocationController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Shared\LectureAllocationController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Shared\LectureAllocationController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Shared\LectureAllocationController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
 Route::prefix('admin/users/work-modes')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'store']);
@@ -359,4 +373,3 @@ Route::prefix('admin/users/work-days')->group(function () {
 // Coordinator  API controllers Close
 //
 //
-
