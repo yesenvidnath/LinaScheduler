@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id('ERL_ID'); // Change from increments() to id() for consistency
             $table->unsignedBigInteger('Course_ID');
             $table->unsignedBigInteger('Equip_ID');
-            $table->enum('Class_Type', ['Practical', 'Lesson']); // Fixed typo "Lession" -> "Lesson"
+            $table->enum('Class_Type', ['Practical', 'Theory', 'Lesson']);
             $table->integer('Expected_Student_Count');
             $table->boolean('Is_Deleted')->default(false);
 
             // Foreign Keys
-            $table->foreign('Course_ID')->references('Course_ID')->on('Courses')->onDelete('cascade');
+            $table->foreign('Course_ID')->references('Course_ID')->on('courses')->onDelete('cascade');
             $table->foreign('Equip_ID')->references('Equip_ID')->on('Equipments')->onDelete('cascade');
         });
     }

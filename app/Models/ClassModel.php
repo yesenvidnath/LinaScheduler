@@ -9,7 +9,7 @@ class ClassModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'Class';
+    protected $table = 'classes';
     protected $primaryKey = 'Cls_ID';
     public $timestamps = false;
 

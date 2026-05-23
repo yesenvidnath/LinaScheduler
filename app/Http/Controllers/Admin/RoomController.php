@@ -52,7 +52,7 @@ class RoomController extends Controller
         }
 
         $validated = $request->validate([
-            'Fl_ID' => 'required|exists:Flows,Fl_ID',
+            'Fl_ID' => 'required|exists:flows,Fl_ID',
             'Room_Number' => 'required|string|max:200',
             'Room_Discrption' => 'required|string',
             'Room_Availability' => 'required|in:0,1,1*',
@@ -128,7 +128,7 @@ class RoomController extends Controller
         }
 
         $validated = $request->validate([
-            'Fl_ID' => 'sometimes|required|exists:Flows,Fl_ID',
+            'Fl_ID' => 'sometimes|required|exists:flows,Fl_ID',
             'Room_Number' => 'sometimes|required|string|max:200',
             'Room_Discrption' => 'sometimes|required|string',
             'Room_Availability' => 'sometimes|required|in:0,1,1*',

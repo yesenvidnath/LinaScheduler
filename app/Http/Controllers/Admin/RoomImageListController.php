@@ -52,7 +52,7 @@ class RoomImageListController extends Controller
         }
 
         $request->validate([
-            'Room_ID' => 'required|exists:Rooms,Room_ID',
+            'Room_ID' => 'required|exists:rooms,Room_ID',
             'images' => 'required|array',
             'images.*' => 'required|image|mimes:jpeg,png,jpg|max:5120', // 5MB max
             'RIL_Discription' => 'required|string'
@@ -186,7 +186,7 @@ class RoomImageListController extends Controller
         }
 
         $validated = $request->validate([
-            'Room_ID' => 'sometimes|required|exists:Rooms,Room_ID',
+            'Room_ID' => 'sometimes|required|exists:rooms,Room_ID',
             'RIL_Image' => 'sometimes|required|string|max:255',
             'RIL_Discription' => 'sometimes|required|string'
         ]);

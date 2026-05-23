@@ -9,7 +9,7 @@ class RoomClass extends Model
 {
     use HasFactory;
 
-    protected $table = 'Classes';
+    protected $table = 'classes';
     protected $primaryKey = 'Cls_ID';
     public $timestamps = false;
 

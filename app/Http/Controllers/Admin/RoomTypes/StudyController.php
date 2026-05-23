@@ -51,7 +51,7 @@ class StudyController extends Controller
         }
 
         $validated = $request->validate([
-            'Room_ID' => 'required|exists:Rooms,Room_ID',
+            'Room_ID' => 'required|exists:rooms,Room_ID',
             'Study_Number' => 'required|string|max:50',
             'Study_Discription' => 'required|string'
         ]);
@@ -126,7 +126,7 @@ class StudyController extends Controller
         }
 
         $validated = $request->validate([
-            'Room_ID' => 'sometimes|required|exists:Rooms,Room_ID',
+            'Room_ID' => 'sometimes|required|exists:rooms,Room_ID',
             'Study_Number' => 'sometimes|required|string|max:50',
             'Study_Discription' => 'sometimes|required|string'
         ]);

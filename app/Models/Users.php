@@ -10,7 +10,7 @@ class Users extends Authenticatable
 {
     use HasApiTokens, HasFactory;
 
-    protected $table = 'Users';
+    protected $table = 'users';
 
     protected $primaryKey = 'User_ID';
 
