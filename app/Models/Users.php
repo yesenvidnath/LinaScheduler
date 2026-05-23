@@ -48,4 +48,9 @@ class Users extends Authenticatable
     {
         return $this->belongsTo(Honorific::class, 'Honorifics_ID');
     }
+
+    public function workDays()
+    {
+        return $this->hasMany(UserWorkDay::class, 'User_ID', 'User_ID');
+    }
 }

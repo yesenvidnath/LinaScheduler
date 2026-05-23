@@ -214,8 +214,6 @@ Route::prefix('admin/Equipments')->group(function () {
         ->where('param', '.*');
 });
 
-// -------------------------------------------Not tested yet -----------------------------------------------------
-
 Route::prefix('admin/courses')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\cources\CourseController::class, 'index']);
     Route::post('/create', [App\Http\Controllers\Admin\cources\CourseController::class, 'store']);
@@ -310,8 +308,55 @@ Route::prefix('admin/scheduling/class-room-bookings')->group(function () {
 });
 
 
+Route::prefix('admin/users/work-modes')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{workMode}', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\WorkModeController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+Route::prefix('admin/users/work-days')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'index']);
+    Route::post('/create', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'store']);
+    Route::get('/show/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'show'])
+        ->where('param', '.*');
+    Route::put('/update/{workDay}', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'update']);
+    Route::delete('/destroy/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'destroy'])
+        ->where('param', '.*');
+    Route::put('/recover/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'recover'])
+        ->where('param', '.*');
+    Route::get('/deleted/{param}', [App\Http\Controllers\Admin\Users\WorkSchedules\UserWorkDayController::class, 'showDeleted'])
+        ->where('param', '.*');
+});
+
+
 //
 //
 // Admin  API controllers Close
 //
 //
+
+// =========================
+
+//
+//
+// Coordinator  API controllers Open
+//
+//
+
+
+
+
+//
+//
+// Coordinator  API controllers Close
+//
+//
+
