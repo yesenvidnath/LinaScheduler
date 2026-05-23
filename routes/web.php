@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('auth/index');
 });
 
+Route::get('/admin', function () {
+    return view('admin/index');
+});
+
 Route::get('/profile', function () {
     return view('profile/index');
 });

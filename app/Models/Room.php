@@ -9,7 +9,7 @@ class Room extends Model
 {
     use HasFactory;
 
-    protected $table = 'Rooms';
+    protected $table = 'rooms';
     protected $primaryKey = 'Room_ID';
 
     protected $fillable = [
@@ -40,5 +40,10 @@ class Room extends Model
     public function flow()
     {
         return $this->belongsTo(Flow::class, 'Fl_ID', 'Fl_ID');
+    }
+
+    public function classRoomBookings()
+    {
+        return $this->hasMany(Class_Room_Bookings::class, 'Room_ID', 'Room_ID');
     }
 }

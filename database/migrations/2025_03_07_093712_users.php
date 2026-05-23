@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('Is_Deleted')->default(false);
             $table->foreign('UD_ID')->references('UD_ID')->on('UserDesignations');
-            $table->foreign('Honorifics_ID')->references('Honorifics_ID')->on('honorifics');
+            $table->foreign('Honorifics_ID')->references('Honorifics_ID')->on('Honorifics');
             $table->timestamps();
         });
     }

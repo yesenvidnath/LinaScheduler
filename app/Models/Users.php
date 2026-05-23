@@ -10,7 +10,7 @@ class Users extends Authenticatable
 {
     use HasApiTokens, HasFactory;
 
-    protected $table = 'Users';
+    protected $table = 'users';
 
     protected $primaryKey = 'User_ID';
 
@@ -47,5 +47,10 @@ class Users extends Authenticatable
     public function honorifics()
     {
         return $this->belongsTo(Honorific::class, 'Honorifics_ID');
+    }
+
+    public function workDays()
+    {
+        return $this->hasMany(UserWorkDay::class, 'User_ID', 'User_ID');
     }
 }

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('course_list', function (Blueprint $table) {
+        Schema::create('course_lists', function (Blueprint $table) {
             $table->id('Course_List_ID'); // Auto-increment primary key
             $table->unsignedBigInteger('Course_ID'); // Foreign key to Courses
             $table->unsignedBigInteger('User_ID'); // Foreign key to Users
@@ -28,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('course_lists');
         Schema::dropIfExists('course_list');
     }
 };

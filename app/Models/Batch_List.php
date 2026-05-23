@@ -14,11 +14,17 @@ class Batch_List extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'Batch_ID',
         'User_ID',
         'Branch_ID',
         'Status',
         'Is_Deleted'
     ];
+
+    public function batch()
+    {
+        return $this->belongsTo(Batches::class, 'Batch_ID', 'Batch_ID');
+    }
 
     public function user()
     {

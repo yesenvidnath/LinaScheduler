@@ -9,11 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::table('Users', function (Blueprint $table) {
-            $table->integer('login_attempts')->default(0)->after('password');
-        });
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->integer('login_attempts')->default(0)->after('password');
+            });
+        }
     }
 
     /**
@@ -21,8 +23,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('Users', function (Blueprint $table) {
-            $table->dropColumn('login_attempts');
-        });
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+                if (Schema::hasColumn('users', 'login_attempts')) {
+                    $table->dropColumn('login_attempts');
+                }
+            });
+        }
     }
 };
